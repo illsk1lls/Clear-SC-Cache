@@ -1,5 +1,4 @@
-@ECHO OFF&SET "gameFolder=C:\Program Files\Roberts Space Industries\StarCitizen\LIVE"
-SET "TitleName=Clear SC Cache"
+@ECHO OFF&SET "gameFolder=C:\Program Files\Roberts Space Industries\StarCitizen\LIVE"&SET "TitleName=Clear SC Cache"
 TASKLIST /V /NH /FI "imagename eq cmd.exe"|FIND /I /C "%TitleName%">nul
 IF NOT %errorlevel%==1 (ECHO ERROR: & ECHO Clear SC Cache is already open!) |MSG * & GOTO :EOF
 TITLE %TitleName%
