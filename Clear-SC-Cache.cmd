@@ -26,7 +26,9 @@ CHOICE /C YN /N /M "Would you like to clear the system shader folders as well [n
 IF %errorlevel%==1 (
 IF EXIST "%localAppData%\AMD\Dxcache\*" >nul 2>&1 RD /S /Q "%localAppData%\AMD\Dxcache"&&(ECHO AMD DX11 system shader folder successfully cleared...>>"%logFile%")||(ECHO Error clearing AMD DX11 system shader folder...>>"%logFile%")
 IF EXIST "%localAppData%\AMD\DxcCache\*" >nul 2>&1 RD /S /Q "%localAppData%\AMD\DxcCache"&&(ECHO AMD DX12 system shader folder successfully cleared...>>"%logFile%")||(ECHO Error clearing AMD DX12 system shader folder...>>"%logFile%")
-IF EXIST "%localAppData%\NVIDIA\DXCache\*" >nul 2>&1 RD /S /Q "%localAppData%\NVIDIA\DXCache"&&(ECHO nVidia system shader folder successfully cleared...>>"%logFile%")||(ECHO Error clearing nVidia system shader folder...>>"%logFile%")
+IF EXIST "%localAppData%\AMD\VkCache\*" >nul 2>&1 RD /S /Q "%localAppData%\AMD\VkCache"&&(ECHO AMD Vulkan system shader folder successfully cleared...>>"%logFile%")||(ECHO Error clearing AMD Vulkan system shader folder...>>"%logFile%")
+IF EXIST "%localAppData%\NVIDIA\DXCache\*" >nul 2>&1 RD /S /Q "%localAppData%\NVIDIA\DXCache"&&(ECHO nVidia DX11/12 system shader folder successfully cleared...>>"%logFile%")||(ECHO Error clearing nVidia DX11/12 system shader folder...>>"%logFile%")
+IF EXIST "%localAppData%\NVIDIA\GLCache\*" >nul 2>&1 RD /S /Q "%localAppData%\NVIDIA\GLCache"&&(ECHO nVidia Vulkan system shader folder successfully cleared...>>"%logFile%")||(ECHO Error clearing nVidia Vulkan system shader folder...>>"%logFile%")
 ECHO.&TYPE "%logFile%"& >nul 2>&1 DEL /F /Q "%logFile%"
 )
 ECHO.&ECHO DONE.&ECHO.&PAUSE&GOTO :EOF
