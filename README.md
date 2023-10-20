@@ -1,4 +1,4 @@
-# Clear-SC-Cache
+# Clear-SC-Cache.cmd
 
 ![alt text](https://github.com/illsk1lls/Clear-SC-Cache/blob/main/.resources/Clear-SC-Cache.png?raw=true)
 
