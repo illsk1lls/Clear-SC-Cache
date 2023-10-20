@@ -1,6 +1,6 @@
 @ECHO OFF&SET "gameFolder=C:\Program Files\Roberts Space Industries\StarCitizen\LIVE"
 IF NOT EXIST "%gameFolder%\*" (ECHO Game files not found! Edit the script and put the correct gameFolder path on the first line ;^)&ECHO.&PAUSE&EXIT) ELSE (SET "userFolder=%gameFolder%\USER\Client\0"&SET "logFile=%~dp0Clear-SC-Cache.log")
-CD.>%logFile%&ECHO Clearing Star Citizen Shader Cache...^(Keybinding are preserved^)&ECHO.
+CD.>%logFile%&ECHO Clearing Star Citizen Shader Cache...^(Keybindings are preserved^)&ECHO.
 IF EXIST "%localAppData%\Star Citizen\*" (
 >nul 2>&1 RD /S /Q "%localAppData%\Star Citizen"&&(ECHO Game shader folder successfully cleared...>>"%logFile%"&ECHO.>>"%logFile%")||(ECHO Error clearing game shader folder...>>"%logFile%"&ECHO.>>"%logFile%")
 ) ELSE (ECHO Game shader folder already clear...>>"%logFile%"&ECHO.>>"%logFile%" )
