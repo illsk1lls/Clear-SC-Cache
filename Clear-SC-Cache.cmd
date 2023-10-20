@@ -1,4 +1,8 @@
 @ECHO OFF&SET "gameFolder=C:\Program Files\Roberts Space Industries\StarCitizen\LIVE"
+SET "TitleName=Clear SC Cache"
+TASKLIST /V /NH /FI "imagename eq cmd.exe"|FIND /I /C "%TitleName%">nul
+IF NOT %errorlevel%==1 (ECHO ERROR: & ECHO Clear SC Cache is already open!) |MSG * & EXIT /b
+TITLE %TitleName%
 IF NOT EXIST "%gameFolder%\*" (ECHO Game files not found! Edit the script and put the correct gameFolder path on the first line ;^)&ECHO.&PAUSE&EXIT) ELSE (SET "userFolder=%gameFolder%\USER\Client\0"&SET "logFile=%~dp0Clear-SC-Cache.log")
 ::This section triggers a request to run as Admin
 >nul 2>&1 REG ADD HKCU\Software\classes\.ScCleanup\shell\runas\command /f /ve /d "CMD /x /d /r SET \"f0=%%2\"& CALL \"%%2\" %%3"
