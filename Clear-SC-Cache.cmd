@@ -10,7 +10,7 @@ IF NOT EXIST "%gameFolder%\*" (ECHO Game files not found! Edit the script and pu
 >nul 2>&1 REG DELETE HKCU\Software\classes\.ScCleanup\ /f&>nul 2>&1 DEL %temp%\runas.ScCleanup /f /q
 TASKLIST /V /NH /FI "imagename eq starcitizen.exe"|FIND /I /C "Star Citizen">nul
 IF NOT %errorlevel%==1 (ECHO THE GAME IS RUNNING: & ECHO Close the game and run the tool again.) |MSG * & GOTO :EOF
-CD.>%logFile%&ECHO Clearing Star Citizen Shader Cache...^(Keybindings are preserved^)&ECHO.
+CD.>"%logFile%"&ECHO Clearing Star Citizen Shader Cache...^(Keybindings are preserved^)&ECHO.
 IF EXIST "%localAppData%\Star Citizen\*" (
 >nul 2>&1 RD /S /Q "%localAppData%\Star Citizen"&&(ECHO Game shader folder successfully cleared...>>"%logFile%"&ECHO.>>"%logFile%")||(ECHO Error clearing game shader folder...>>"%logFile%"&ECHO.>>"%logFile%")
 ) ELSE (ECHO Game shader folder already clear...>>"%logFile%"&ECHO.>>"%logFile%" )
